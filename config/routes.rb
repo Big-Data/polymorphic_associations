@@ -1,4 +1,7 @@
 PolymorphicAssociations::Application.routes.draw do
+  resources :articles
+  match "article-create-comment/:article_id", :to => "articles#create_comment", :as => "article_create_comment"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +51,7 @@ PolymorphicAssociations::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'articles#index'
 
   # See how all your routes lay out with "rake routes"
 

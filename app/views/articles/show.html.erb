@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @article.title %>
+</p>
+
+<p>
+  <%= form_for '', :url => article_create_comment_url(:article_id => @article) do |f| %>
+   Comment:
+   <textarea name="comment" rows="5" cols="30"></textarea>   <br/>
+   <input type="submit" value="Create Comment">
+  <% end %>
+</p>
+
+<p>
+  <% @article.comments.each do |comment| %>
+  <%= comment.title%> <br/>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
