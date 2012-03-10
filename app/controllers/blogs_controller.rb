@@ -90,7 +90,7 @@ class BlogsController < ApplicationController
 
   def delete_comment
     comment=Comment.find(params[:comment_id])
-    blog = comment.blog
+    blog = comment.commentable
     comment.destroy
     redirect_to blog, notice: 'Comment was deleted'
   end
