@@ -85,7 +85,7 @@ class ArticlesController < ApplicationController
     article = Article.find(params[:article_id])
     article.comments << Comment.create(:title => params[:comment])
     article.save
-    redirect_to articles_url, notice: 'Article was successfully updated.'
+    redirect_to article, notice: 'Comment was added'
   end
 
 end

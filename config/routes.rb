@@ -1,4 +1,8 @@
 PolymorphicAssociations::Application.routes.draw do
+  resources :blogs
+  match "blog-create-comment/:blog_id", :to => "blogs#create_comment", :as => "blog_create_comment"
+  match "delete-comment/:comment_id", :to => "blogs#delete_comment", :as => "delete_comment"
+
   resources :articles
   match "article-create-comment/:article_id", :to => "articles#create_comment", :as => "article_create_comment"
 

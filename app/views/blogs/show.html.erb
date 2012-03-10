@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <%= form_for '', :url => blog_create_comment_url(:blog_id => @blog) do |f| %>
+   Comment:
+   <textarea name="comment" rows="5" cols="30"></textarea>   <br/>
+   <input type="submit" value="Create Comment">
+  <% end %>
+</p>
+
+<p>
+  <% @blog.comments.each do |comment| %>
+  <%= comment.title%> <%= link_to "delete", delete_comment_url(:comment_id => comment) %> <br/>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
